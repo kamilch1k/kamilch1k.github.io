@@ -240,11 +240,11 @@
         <div class="lbl">Backend</div>
         <div class="tags">
           <span class="tag key">Go</span>
-          <span class="tag key">Python</span>
-          <span class="tag">FastAPI</span>
-          <span class="tag">Flask</span>
-          <span class="tag">REST</span>
+          <span class="tag key">C# / .NET</span>
+          <span class="tag">ASP.NET Core</span>
+          <span class="tag">Python</span>
           <span class="tag">gRPC</span>
+          <span class="tag">REST</span>
         </div>
       </div>
       <div class="skillgroup">
@@ -261,6 +261,7 @@
         <div class="lbl">Frontend</div>
         <div class="tags">
           <span class="tag key">TypeScript</span>
+          <span class="tag">Three.js</span>
           <span class="tag">Angular</span>
           <span class="tag">HTML/CSS</span>
         </div>
@@ -276,9 +277,10 @@
       <div class="skillgroup">
         <div class="lbl">Languages &amp; Tools</div>
         <div class="tags">
-          <span class="tag">C#</span>
           <span class="tag">Git</span>
           <span class="tag">Linux</span>
+          <span class="tag">EF Core</span>
+          <span class="tag">PyTorch</span>
           <span class="tag">Profiling</span>
         </div>
       </div>
@@ -302,7 +304,7 @@
       <div class="edu-row" style="display:block;">
         <div class="edu-school">Middle East Technical University (METU)</div>
         <div class="job-date" style="margin-top:3px;">2022 – 2026</div>
-        <p class="about" style="margin-top:5px;">Relevant coursework, thesis &amp; competitions — to add.</p>
+        <p class="about" style="margin-top:5px;"><b>B.Sc. thesis:</b> Physics-Informed Neural Radiance Fields (PyTorch) — adding surface-normal-consistency &amp; Lambertian priors to recover physically-plausible geometry.</p>
       </div>
     </aside>
 
@@ -311,14 +313,14 @@
       <div class="name">Kamil Gilfanov</div>
       <div class="role">Backend / Full-Stack Software Engineer</div>
       <p class="summary">
-        Backend-focused software engineer with a strong CS and mathematics
-        foundation (METU) and years of shipping real systems — from live
-        production websites to a published mobile game. Comfortable across the
-        stack: designing REST and gRPC APIs in Go and Python, modelling and
-        querying PostgreSQL, and building front-ends in Angular / TypeScript.
-        Correctness- and performance-minded, with testing and profiling habits
-        sharpened by optimization-heavy game and backend work. Currently building
-        a fintech-grade payments &amp; loan-origination platform in Go.
+        Backend-focused engineer (.NET, Go, TypeScript) with a strong CS and
+        mathematics foundation (METU). I build practical, runnable systems and
+        care about the parts that are easy to get wrong — idempotency, concurrency,
+        outbox-style workflows, and failure recovery — backed by real tests, CI,
+        and local verification. My graduation thesis is a physics-informed neural
+        radiance field (PyTorch). Currently focused on the slice fintech teams
+        hire for: money-safe ledgers, idempotent APIs, event streaming, and risk
+        analytics.
       </p>
 
       <section>
@@ -369,54 +371,79 @@
 
         <div class="job">
           <div class="job-head">
-            <div class="job-title">hire-bridge — onboarding integration service<span class="badge live">Live</span></div>
+            <div class="job-title">ledgerline — event-driven double-entry ledger (Go)<span class="badge live">Live</span></div>
             <div class="job-date">2026</div>
           </div>
-          <p>Idempotent Greenhouse&rarr;HRIS/Airtable provisioning service: HMAC-verified
-             webhooks, an ordered task saga with retry/backoff and dead-lettering, two-way
-             drift reconciliation, and an append-only audit trail. 22 tests, ~98% coverage,
-             green CI.</p>
-          <div class="stack-line">TypeScript · Node · Fastify · SQLite · Zod · Vitest · GitHub Actions</div>
-          <a class="link" href="https://github.com/kamilch1k/hire-bridge">github.com/kamilch1k/hire-bridge</a>
-        </div>
-
-        <div class="job">
-          <div class="job-head">
-            <div class="job-title">ledgerline — fintech payments &amp; origination platform<span class="badge live">v1 Live</span></div>
-            <div class="job-date">2026</div>
-          </div>
-          <p>Idempotent, concurrency-safe double-entry ledger in Go (v1 shipped):
-             exactly-once transfers via an Idempotency-Key, no overdraft under
-             concurrency (row-level SELECT FOR UPDATE), and balanced books — proven
-             by tests against real Postgres and race-tested in CI. v1.1 adds gRPC;
-             v2 adds event sourcing, a loan-origination FSM (HTTP), a transactional
-             outbox/relay, an AML consumer, and a dbt/DuckDB risk-analytics layer.</p>
-          <div class="stack-line">Go · PostgreSQL (pgx) · net/http · embedded-postgres · GitHub Actions · ~89% coverage</div>
+          <p>Idempotent, concurrency-safe double-entry ledger: exactly-once transfers,
+             no overdraft under concurrency (row-level SELECT FOR UPDATE), a gRPC surface,
+             a transactional outbox + AML consumer, a loan-origination state machine, and
+             a dbt/DuckDB risk-analytics layer. Tested against real Postgres, race-checked
+             in CI, ~88% coverage.</p>
+          <div class="stack-line">Go · PostgreSQL (pgx) · gRPC · Kafka · dbt · GitHub Actions</div>
           <a class="link" href="https://github.com/kamilch1k/ledgerline">github.com/kamilch1k/ledgerline</a>
         </div>
 
         <div class="job">
           <div class="job-head">
-            <div class="job-title">mxkit — Mexican fintech validators (Go)<span class="badge live">Live</span></div>
+            <div class="job-title">signalforge — vacancy-to-OSS proof engine<span class="badge live">Live</span></div>
             <div class="job-date">2026</div>
           </div>
-          <p>Dependency-free Go library: CLABE interbank-account check-digit
-             validation/generation and payment-card tooling (Luhn, brand, masking,
-             expiry). Table-driven tests, ~91% coverage, green CI.</p>
-          <div class="stack-line">Go · zero dependencies · CLI</div>
-          <a class="link" href="https://github.com/kamilch1k/mxkit">github.com/kamilch1k/mxkit</a>
+          <p>ASP.NET Core app (API + UI) that maps a job posting to open-source
+             contribution opportunities and scores them explainably — skills, issue
+             freshness, testability, maintainer responsiveness, risk — with idempotency-key
+             action tracking, xUnit tests, Docker, and CI.</p>
+          <div class="stack-line">C# · ASP.NET Core · SQLite · GitHub API · xUnit</div>
+          <a class="link" href="https://github.com/kamilch1k/signalforge">github.com/kamilch1k/signalforge</a>
         </div>
 
         <div class="job">
           <div class="job-head">
-            <div class="job-title">centavo — exact money type (Go)<span class="badge live">Live</span></div>
+            <div class="job-title">mixed-order-ledger-system — cross-language outbox<span class="badge live">Live</span></div>
             <div class="job-date">2026</div>
           </div>
-          <p>Integer-minor-unit money type with exact decimal parsing and
-             remainder-safe allocation that never loses a cent — verified by a
-             5,000-case conservation property test. ~93% coverage.</p>
-          <div class="stack-line">Go · zero dependencies</div>
-          <a class="link" href="https://github.com/kamilch1k/centavo">github.com/kamilch1k/centavo</a>
+          <p>An ASP.NET Core order API writes durable outbox events with idempotent
+             creation; a Go worker consumes them and writes ledger entries (payment
+             capture, revenue recognition). Event-driven with no Docker/Kafka — .NET
+             integration tests, Go worker tests, and a local verification script.</p>
+          <div class="stack-line">.NET · Go · outbox pattern · idempotency · tests</div>
+          <a class="link" href="https://github.com/kamilch1k/mixed-order-ledger-system">github.com/kamilch1k/mixed-order-ledger-system</a>
+        </div>
+
+        <div class="job">
+          <div class="job-head">
+            <div class="job-title">hire-bridge — onboarding integration service (TS)<span class="badge live">Live</span></div>
+            <div class="job-date">2026</div>
+          </div>
+          <p>Idempotent Greenhouse&rarr;HRIS/Airtable provisioning service: HMAC-verified
+             webhooks, an ordered task saga with retry/backoff and dead-lettering, two-way
+             drift reconciliation, and an append-only audit trail. 22 tests, ~98% coverage.</p>
+          <div class="stack-line">TypeScript · Node · Fastify · SQLite · Zod · Vitest</div>
+          <a class="link" href="https://github.com/kamilch1k/hire-bridge">github.com/kamilch1k/hire-bridge</a>
+        </div>
+
+        <div class="job">
+          <div class="job-head">
+            <div class="job-title">job-application-tracker-api — auth'd REST backend<span class="badge live">Live</span></div>
+            <div class="job-date">2026</div>
+          </div>
+          <p>ASP.NET Core API with JWT auth + Identity, user-isolated resources, a
+             dashboard summary, and a hosted background worker for due follow-ups;
+             PostgreSQL via EF Core migrations, integration tests (WebApplicationFactory),
+             Docker Compose, and CI.</p>
+          <div class="stack-line">.NET · ASP.NET Core · EF Core · PostgreSQL · JWT · xUnit</div>
+          <a class="link" href="https://github.com/kamilch1k/job-application-tracker-api">github.com/kamilch1k/job-application-tracker-api</a>
+        </div>
+
+        <div class="job">
+          <div class="job-head">
+            <div class="job-title">Go libraries — mxkit &amp; centavo<span class="badge live">Live</span></div>
+            <div class="job-date">2026</div>
+          </div>
+          <p>Two dependency-free, well-tested Go libraries: <b>mxkit</b> (Mexican CLABE
+             &amp; payment-card validation) and <b>centavo</b> (integer-minor-unit money with
+             remainder-safe allocation, proven by a 5,000-case property test). ~90%+ coverage.</p>
+          <div class="stack-line">Go · zero dependencies · GitHub Actions</div>
+          <a class="link" href="https://github.com/kamilch1k/mxkit">github.com/kamilch1k/mxkit · /centavo</a>
         </div>
       </section>
 
@@ -428,20 +455,19 @@
             <div class="job-title">Mobile destruction-physics game · <span class="job-co">BitSlop</span><span class="badge live">Shipped</span></div>
             <div class="job-date">2026</div>
           </div>
-          <p>Gameplay and a mobile destruction-physics system (inspired by Teardown)
-             for a published title — heavy focus on performance and memory on
-             constrained hardware. One of a broad portfolio of game &amp; engine
-             side-projects.</p>
+          <p>For fun: an optimized mobile destruction-physics pipeline (Teardown-style
+             voxel destruction) tuned hard for performance and memory on constrained
+             hardware, in a published title — one of a broad portfolio of game &amp;
+             engine side-projects.</p>
           <div class="stack-line">C# · Unity · performance &amp; memory optimization</div>
           <a class="link" href="https://play.google.com/store/apps/details?id=com.bitslop.voxelsuvivors">play.google.com/store/apps/details?id=com.bitslop.voxelsuvivors</a>
         </div>
       </section>
 
       <p class="footnote">
-        Working note (hidden when printed): fill in real contact links + the
-        Education detail; the flagship repo link goes live as it's built. Skills
-        tagged in teal are demonstrated in the ledgerline build —
-        keep only what you can defend in interview.
+        Working note (hidden when printed): fill in your real email + LinkedIn.
+        Skills tagged in teal are the ones to lead with — keep only what you can
+        defend in interview.
       </p>
     </main>
   </div>
