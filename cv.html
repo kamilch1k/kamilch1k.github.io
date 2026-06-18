@@ -232,37 +232,38 @@
     /* --- hide lower-priority material for 1-page fit --- */
     .print-hide{display:none !important;}
 
-    /* --- print sizing: balanced to fill one A4 page (print only) --- */
-    .rail{padding:9mm 7.5mm 7mm;}
-    .rail h2{margin:11px 0 5px;font-size:9px;}
-    .contact a, .contact span{font-size:11px;margin-bottom:2.5px;}
-    .skillgroup{margin-bottom:7px;}
-    .skillgroup .lbl{font-size:10.5px;margin-bottom:3px;}
-    .tags{gap:3.5px;}
-    .tag{font-size:9.5px;padding:2px 5.5px;}
-    .langline{font-size:11px;}
-    .about{font-size:10.5px;line-height:1.35;}
+    /* --- print sizing: compact, everything on one page --- */
+    .rail{padding:8mm 7mm 6mm;}
+    .rail h2{margin:9px 0 4px;font-size:8.5px;}
+    .contact a, .contact span{font-size:10px;margin-bottom:2px;}
+    .skillgroup{margin-bottom:6px;}
+    .skillgroup .lbl{font-size:9.5px;margin-bottom:3px;}
+    .tags{gap:3px;}
+    .tag{font-size:9px;padding:1.5px 5px;}
+    .langline{font-size:10px;}
+    .about{font-size:9.5px;line-height:1.32;}
 
-    .main{padding:9mm 12mm 7mm;}
-    .name{font-size:25px;}
-    .role{font-size:10px;margin-top:4px;}
-    .summary{font-size:10.5px;margin-top:8px;padding-top:8px;line-height:1.4;max-width:none;}
+    .main{padding:8mm 11mm 6mm;}
+    .name{font-size:23px;}
+    .role{font-size:9.5px;margin-top:3px;}
+    .summary{font-size:9.8px;margin-top:7px;padding-top:7px;line-height:1.36;max-width:none;}
 
-    section{margin-top:11px;}
-    .sec-title{font-size:11px;margin-bottom:7px;}
+    section{margin-top:8px;}
+    .sec-title{font-size:10px;margin-bottom:6px;}
 
-    .job{margin-bottom:7px;padding-left:14px;}
-    .job::before{top:4.5px;width:5.5px;height:5.5px;}
-    .job::after{left:2.25px;top:12px;bottom:-7px;}
-    .job-title{font-size:11px;}
-    .job-date{font-size:9px;}
-    .job p{font-size:10.5px;margin-top:2px;line-height:1.36;max-width:none;}
-    .stack-line{font-size:8.5px;margin-top:2px;}
-    .job .link{font-size:9px;}
-    .badge{font-size:7.5px;padding:1.5px 5px;margin-left:5px;}
+    .side-sec{display:none;}
+    .job{margin-bottom:5px;padding-left:13px;}
+    .job::before{top:4px;width:5px;height:5px;}
+    .job::after{left:2px;top:11px;bottom:-6px;}
+    .job-title{font-size:10px;}
+    .job-date{font-size:8.5px;}
+    .job p{font-size:9.5px;margin-top:1.5px;line-height:1.32;max-width:none;}
+    .stack-line{font-size:7.5px;margin-top:1.5px;}
+    .job .link{font-size:8.5px;}
+    .badge{font-size:7px;padding:1px 4px;margin-left:5px;}
 
-    .edu-school{font-size:12px;}
-    .edu-row .job-date{font-size:9.5px;}
+    .edu-school{font-size:11px;}
+    .edu-row .job-date{font-size:9px;}
   }
   @media (max-width:760px){
     .page{grid-template-columns:1fr;width:100%;}
@@ -314,7 +315,7 @@
           <span class="tag">HTML/CSS</span>
         </div>
       </div>
-      <div class="skillgroup print-hide">
+      <div class="skillgroup">
         <div class="lbl">Testing</div>
         <div class="tags">
           <span class="tag">Ginkgo/gomega</span>
@@ -322,7 +323,7 @@
           <span class="tag">Allure</span>
         </div>
       </div>
-      <div class="skillgroup print-hide">
+      <div class="skillgroup">
         <div class="lbl">Languages &amp; Tools</div>
         <div class="tags">
           <span class="tag">Git</span>
@@ -332,7 +333,7 @@
           <span class="tag">Profiling</span>
         </div>
       </div>
-      <div class="skillgroup print-hide">
+      <div class="skillgroup">
         <div class="lbl">Game Dev</div>
         <div class="tags">
           <span class="tag">Unity</span>
@@ -341,11 +342,11 @@
         </div>
       </div>
 
-      <h2 class="print-hide">Languages</h2>
-      <div class="langline print-hide"><b>English</b> — professional</div>
+      <h2>Languages</h2>
+      <div class="langline"><b>English</b> — professional</div>
 
-      <h2 class="print-hide">Interests</h2>
-      <p class="about print-hide">Drawn to the mathematics and theory behind problems, not just
+      <h2>Interests</h2>
+      <p class="about">Drawn to the mathematics and theory behind problems, not just
         the code. Also RTS games, gameplay systems, and technical problem-solving.</p>
 
       <h2>Education</h2>
@@ -447,11 +448,7 @@
             <div class="job-title">ledgerline — event-driven double-entry ledger (Go)<span class="badge live">Live</span></div>
             <div class="job-date">2026</div>
           </div>
-          <p>Idempotent, concurrency-safe double-entry ledger: exactly-once transfers,
-             no overdraft under concurrency (row-level SELECT FOR UPDATE), a gRPC surface,
-             a transactional outbox + AML consumer, a loan-origination state machine, and
-             a dbt/DuckDB risk-analytics layer. Tested against real Postgres, race-checked
-             in CI, ~88% coverage.</p>
+          <p>Concurrency-safe double-entry ledger: exactly-once transfers, no overdraft under load (row-level locking), a gRPC surface, a transactional outbox + AML consumer, a loan-origination FSM, and a dbt/DuckDB risk layer. Real-Postgres tests, race-checked CI, ~88% cov.</p>
           <div class="stack-line">Go · PostgreSQL (pgx) · gRPC · Kafka · dbt · GitHub Actions</div>
           <a class="link" href="https://github.com/kamilch1k/ledgerline">github.com/kamilch1k/ledgerline</a>
         </div>
@@ -461,23 +458,17 @@
             <div class="job-title">signalforge — vacancy-to-OSS proof engine<span class="badge live">Live</span></div>
             <div class="job-date">2026</div>
           </div>
-          <p>ASP.NET Core app (API + UI) that maps a job posting to open-source
-             contribution opportunities and scores them explainably — skills, issue
-             freshness, testability, maintainer responsiveness, risk — with idempotency-key
-             action tracking, xUnit tests, Docker, and CI.</p>
+          <p>ASP.NET Core API + UI mapping a job posting to scored, explainable OSS contribution opportunities (skills, freshness, testability, risk); idempotency-key tracking, xUnit, Docker, CI.</p>
           <div class="stack-line">C# · ASP.NET Core · SQLite · GitHub API · xUnit</div>
           <a class="link" href="https://github.com/kamilch1k/signalforge">github.com/kamilch1k/signalforge</a>
         </div>
 
-        <div class="job print-hide">
+        <div class="job">
           <div class="job-head">
             <div class="job-title">mixed-order-ledger-system — cross-language outbox<span class="badge live">Live</span></div>
             <div class="job-date">2026</div>
           </div>
-          <p>An ASP.NET Core order API writes durable outbox events with idempotent
-             creation; a Go worker consumes them and writes ledger entries (payment
-             capture, revenue recognition). Event-driven with no Docker/Kafka — .NET
-             integration tests, Go worker tests, and a local verification script.</p>
+          <p>ASP.NET Core order API emits durable outbox events (idempotent); a Go worker consumes them into ledger entries. Event-driven, no infra needed; .NET + Go tests.</p>
           <div class="stack-line">.NET · Go · outbox pattern · idempotency · tests</div>
           <a class="link" href="https://github.com/kamilch1k/mixed-order-ledger-system">github.com/kamilch1k/mixed-order-ledger-system</a>
         </div>
@@ -487,40 +478,33 @@
             <div class="job-title">hire-bridge — onboarding integration service (TS)<span class="badge live">Live</span></div>
             <div class="job-date">2026</div>
           </div>
-          <p>Idempotent Greenhouse&rarr;HRIS/Airtable provisioning service: HMAC-verified
-             webhooks, an ordered task saga with retry/backoff and dead-lettering, two-way
-             drift reconciliation, and an append-only audit trail. 22 tests, ~98% coverage.</p>
+          <p>Idempotent Greenhouse&rarr;HRIS/Airtable provisioning: HMAC webhooks, an ordered saga with retry/backoff + dead-lettering, drift reconciliation, and an audit trail. 22 tests, ~98% cov.</p>
           <div class="stack-line">TypeScript · Node · Fastify · SQLite · Zod · Vitest</div>
           <a class="link" href="https://github.com/kamilch1k/hire-bridge">github.com/kamilch1k/hire-bridge</a>
         </div>
 
-        <div class="job print-hide">
+        <div class="job">
           <div class="job-head">
             <div class="job-title">job-application-tracker-api — auth'd REST backend<span class="badge live">Live</span></div>
             <div class="job-date">2026</div>
           </div>
-          <p>ASP.NET Core API with JWT auth + Identity, user-isolated resources, a
-             dashboard summary, and a hosted background worker for due follow-ups;
-             PostgreSQL via EF Core migrations, integration tests (WebApplicationFactory),
-             Docker Compose, and CI.</p>
+          <p>ASP.NET Core REST API: JWT/Identity auth, user-isolated data, and a background worker for due follow-ups; PostgreSQL via EF Core, integration tests, Docker, CI.</p>
           <div class="stack-line">.NET · ASP.NET Core · EF Core · PostgreSQL · JWT · xUnit</div>
           <a class="link" href="https://github.com/kamilch1k/job-application-tracker-api">github.com/kamilch1k/job-application-tracker-api</a>
         </div>
 
-        <div class="job print-hide">
+        <div class="job">
           <div class="job-head">
             <div class="job-title">Go libraries — mxkit &amp; centavo<span class="badge live">Live</span></div>
             <div class="job-date">2026</div>
           </div>
-          <p>Two dependency-free, well-tested Go libraries: <b>mxkit</b> (Mexican CLABE
-             &amp; payment-card validation) and <b>centavo</b> (integer-minor-unit money with
-             remainder-safe allocation, proven by a 5,000-case property test). ~90%+ coverage.</p>
+          <p>Two dependency-free Go libs: <b>mxkit</b> (Mexican CLABE + card validation) and <b>centavo</b> (minor-unit money, remainder-safe allocation, 5,000-case property test). ~90%+ cov.</p>
           <div class="stack-line">Go · zero dependencies · GitHub Actions</div>
           <a class="link" href="https://github.com/kamilch1k/mxkit">github.com/kamilch1k/mxkit · /centavo</a>
         </div>
       </section>
 
-      <section class="print-hide">
+      <section class="side-sec">
         <div class="sec-title">Side Projects</div>
 
         <div class="job">
@@ -528,10 +512,7 @@
             <div class="job-title">Mobile destruction-physics game · <span class="job-co">BitSlop</span><span class="badge live">Shipped</span></div>
             <div class="job-date">2026</div>
           </div>
-          <p>For fun: an optimized mobile destruction-physics pipeline (Teardown-style
-             voxel destruction) tuned hard for performance and memory on constrained
-             hardware, in a published title — one of a broad portfolio of game &amp;
-             engine side-projects.</p>
+          <p>For fun — an optimized mobile destruction-physics pipeline (Teardown-style voxel destruction) tuned hard for performance and memory, in a published title.</p>
           <div class="stack-line">C# · Unity · performance &amp; memory optimization</div>
           <a class="link" href="https://play.google.com/store/apps/details?id=com.bitslop.voxelsuvivors">play.google.com/store/apps/details?id=com.bitslop.voxelsuvivors</a>
         </div>
