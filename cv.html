@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CV — Kamil Gilfanov</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#15191f;
+    --body:#39414c;
+    --muted:#727b88;
+    --line:#e4e7ec;
+    --accent:#0e6b6b;
+    --accent-soft:#e6f1f0;
+    --bg:#ffffff;
+    --rail:#f7f8f9;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    background:#d9dde2;
+    font-family:'Inter',system-ui,sans-serif;
+    color:var(--body);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+    padding:32px 16px;
+  }
+  .page{
+    width:210mm;
+    min-height:297mm;
+    margin:0 auto;
+    background:var(--bg);
+    display:grid;
+    grid-template-columns:64mm 1fr;
+    box-shadow:0 10px 40px rgba(20,25,31,.16);
+  }
+
+  /* ---- Sidebar ---- */
+  .rail{
+    background:var(--rail);
+    border-right:1px solid var(--line);
+    padding:26mm 9mm 12mm;
+  }
+  .rail h2{
+    font-family:'JetBrains Mono',monospace;
+    font-size:10px;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--accent);
+    font-weight:500;
+    margin:22px 0 9px;
+  }
+  .rail h2:first-of-type{margin-top:0;}
+  .contact a, .contact span{
+    display:block;
+    font-size:12.5px;
+    color:var(--body);
+    text-decoration:none;
+    margin-bottom:5px;
+    word-break:break-word;
+  }
+  .contact a:hover{color:var(--accent);}
+
+  .skillgroup{margin-bottom:13px;}
+  .skillgroup .lbl{
+    font-size:11.5px;
+    font-weight:600;
+    color:var(--ink);
+    margin-bottom:6px;
+  }
+  .tags{display:flex;flex-wrap:wrap;gap:5px;}
+  .tag{
+    font-family:'JetBrains Mono',monospace;
+    font-size:10.5px;
+    color:var(--body);
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:3px 7px;
+  }
+  .tag.key{
+    background:var(--accent-soft);
+    border-color:#bfe0dd;
+    color:var(--accent);
+  }
+  .langline{font-size:12px;color:var(--body);margin-bottom:4px;}
+  .langline b{color:var(--ink);font-weight:600;}
+  .about{font-size:12px;color:var(--body);}
+
+  /* ---- Main ---- */
+  .main{padding:24mm 16mm 14mm;}
+  .name{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:34px;
+    font-weight:700;
+    letter-spacing:-.01em;
+    color:var(--ink);
+    line-height:1.05;
+  }
+  .role{
+    font-family:'JetBrains Mono',monospace;
+    font-size:12.5px;
+    letter-spacing:.04em;
+    color:var(--accent);
+    margin-top:7px;
+  }
+  .summary{
+    font-size:13px;
+    color:var(--body);
+    margin-top:14px;
+    padding-top:14px;
+    border-top:1px solid var(--line);
+    max-width:58ch;
+  }
+
+  section{margin-top:20px;}
+  .sec-title{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:.02em;
+    text-transform:uppercase;
+    color:var(--ink);
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:13px;
+  }
+  .sec-title::after{
+    content:"";
+    flex:1;
+    height:1px;
+    background:var(--line);
+  }
+
+  .job{
+    position:relative;
+    padding-left:18px;
+    margin-bottom:14px;
+  }
+  .job::before{
+    content:"";
+    position:absolute;
+    left:0; top:6px;
+    width:7px;height:7px;
+    border-radius:50%;
+    background:var(--accent);
+  }
+  .job::after{
+    content:"";
+    position:absolute;
+    left:3px; top:15px;
+    width:1px; bottom:-14px;
+    background:var(--line);
+  }
+  .job:last-child::after{display:none;}
+  .job-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    gap:12px;
+    flex-wrap:wrap;
+  }
+  .job-title{font-size:13.5px;font-weight:600;color:var(--ink);}
+  .job-co{color:var(--accent);font-weight:600;}
+  .job-date{
+    font-family:'JetBrains Mono',monospace;
+    font-size:10.5px;
+    color:var(--muted);
+    white-space:nowrap;
+  }
+  .job p{font-size:12.5px;color:var(--body);margin-top:3px;max-width:64ch;}
+  .badge{
+    font-family:'JetBrains Mono',monospace;
+    font-size:9px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    padding:2px 6px;
+    border-radius:4px;
+    margin-left:8px;
+    vertical-align:middle;
+  }
+  .badge.live{background:var(--accent);color:#fff;}
+  .badge.wip{background:#fff;border:1px solid #d8b36b;color:#9a6b16;}
+  .stack-line{
+    font-family:'JetBrains Mono',monospace;
+    font-size:10px;
+    color:var(--muted);
+    margin-top:4px;
+  }
+  .job .link{
+    font-family:'JetBrains Mono',monospace;
+    font-size:10.5px;
+    color:var(--accent);
+    text-decoration:none;
+    word-break:break-all;
+  }
+
+  .edu-row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;}
+  .edu-school{font-size:13.5px;font-weight:600;color:var(--ink);}
+  .edu-row .job-date{font-size:11px;}
+
+  .footnote{
+    margin-top:18px;
+    font-size:11px;
+    color:var(--muted);
+    font-style:italic;
+    border-top:1px dashed var(--line);
+    padding-top:10px;
+  }
+
+  @media print{
+    body{background:#fff;padding:0;}
+    .page{box-shadow:none;width:auto;min-height:auto;}
+    .footnote{display:none;}
+  }
+  @media (max-width:760px){
+    .page{grid-template-columns:1fr;width:100%;}
+    .rail{border-right:none;border-bottom:1px solid var(--line);padding:20px;}
+    .main{padding:24px 20px;}
+  }
+</style>
+</head>
+<body>
+  <div class="page">
+    <!-- Sidebar -->
+    <aside class="rail">
+      <h2>Contact</h2>
+      <div class="contact">
+        <span>Türkiye — open to remote / hybrid</span>
+        <a href="#">your.email@example.com</a>
+        <a href="#">linkedin.com/in/yourname</a>
+        <a href="https://github.com/kamilch1k">github.com/kamilch1k</a>
+      </div>
+
+      <h2>Core Skills</h2>
+      <div class="skillgroup">
+        <div class="lbl">Backend</div>
+        <div class="tags">
+          <span class="tag key">Go</span>
+          <span class="tag key">Python</span>
+          <span class="tag">FastAPI</span>
+          <span class="tag">Flask</span>
+          <span class="tag">REST</span>
+          <span class="tag">gRPC</span>
+        </div>
+      </div>
+      <div class="skillgroup">
+        <div class="lbl">Data &amp; Infra</div>
+        <div class="tags">
+          <span class="tag key">PostgreSQL</span>
+          <span class="tag">SQL</span>
+          <span class="tag">Kafka</span>
+          <span class="tag">Docker</span>
+          <span class="tag">CI/CD</span>
+        </div>
+      </div>
+      <div class="skillgroup">
+        <div class="lbl">Frontend</div>
+        <div class="tags">
+          <span class="tag key">TypeScript</span>
+          <span class="tag">Angular</span>
+          <span class="tag">HTML/CSS</span>
+        </div>
+      </div>
+      <div class="skillgroup">
+        <div class="lbl">Testing</div>
+        <div class="tags">
+          <span class="tag">Ginkgo/gomega</span>
+          <span class="tag">testcontainers</span>
+          <span class="tag">Allure</span>
+        </div>
+      </div>
+      <div class="skillgroup">
+        <div class="lbl">Languages &amp; Tools</div>
+        <div class="tags">
+          <span class="tag">C#</span>
+          <span class="tag">Git</span>
+          <span class="tag">Linux</span>
+          <span class="tag">Profiling</span>
+        </div>
+      </div>
+      <div class="skillgroup">
+        <div class="lbl">Game Dev</div>
+        <div class="tags">
+          <span class="tag">Unity</span>
+          <span class="tag">UniTask</span>
+          <span class="tag">Zenject</span>
+        </div>
+      </div>
+
+      <h2>Languages</h2>
+      <div class="langline"><b>English</b> — professional</div>
+
+      <h2>Interests</h2>
+      <p class="about">Drawn to the mathematics and theory behind problems, not just
+        the code. Also RTS games, gameplay systems, and technical problem-solving.</p>
+
+      <h2>Education</h2>
+      <div class="edu-row" style="display:block;">
+        <div class="edu-school">Middle East Technical University (METU)</div>
+        <div class="job-date" style="margin-top:3px;">2022 – 2026</div>
+        <p class="about" style="margin-top:5px;">Relevant coursework, thesis &amp; competitions — to add.</p>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <main class="main">
+      <div class="name">Kamil Gilfanov</div>
+      <div class="role">Backend / Full-Stack Software Engineer</div>
+      <p class="summary">
+        Backend-focused software engineer with a strong CS and mathematics
+        foundation (METU) and years of shipping real systems — from live
+        production websites to a published mobile game. Comfortable across the
+        stack: designing REST and gRPC APIs in Go and Python, modelling and
+        querying PostgreSQL, and building front-ends in Angular / TypeScript.
+        Correctness- and performance-minded, with testing and profiling habits
+        sharpened by optimization-heavy game and backend work. Currently building
+        a fintech-grade payments &amp; loan-origination platform in Go.
+      </p>
+
+      <section>
+        <div class="sec-title">Experience</div>
+
+        <div class="job">
+          <div class="job-head">
+            <div class="job-title">Website Maintenance &amp; Backend Developer · <span class="job-co">ocenchik.ru</span></div>
+            <div class="job-date">Aug 2018 – Present · 8 yrs</div>
+          </div>
+          <p>Eight years maintaining and extending a live production website end to
+             end — server-side logic, data handling, fixes and feature work, and
+             keeping the running service reliable and online over the long haul.</p>
+        </div>
+
+        <div class="job">
+          <div class="job-head">
+            <div class="job-title">Backend Developer · <span class="job-co">learnenglishbest.com</span></div>
+            <div class="job-date">Aug 2023 – Sep 2023</div>
+          </div>
+          <p>Built backend functionality and the structured datasets powering
+             English-learning applications, including the data model behind the
+             learning content.</p>
+        </div>
+
+        <div class="job">
+          <div class="job-head">
+            <div class="job-title">Python Instructor · <span class="job-co">ООО Развитие</span></div>
+            <div class="job-date">Aug 2024</div>
+          </div>
+          <p>Taught Python, Flask, and FastAPI and guided students through building
+             small backend projects — teaching the fundamentals first: why the code
+             works, not just how to produce it.</p>
+        </div>
+
+        <div class="job">
+          <div class="job-head">
+            <div class="job-title">Python / C# / Unity Instructor · <span class="job-co">EasyCode</span></div>
+            <div class="job-date">Sep 2025 – Jan 2026</div>
+          </div>
+          <p>Ran individual and group classes in Python, C#, and Unity for up to
+             nine students, adapting material to each learner's level.</p>
+        </div>
+      </section>
+
+      <section>
+        <div class="sec-title">Selected Projects</div>
+
+        <div class="job">
+          <div class="job-head">
+            <div class="job-title">hire-bridge — onboarding integration service<span class="badge live">Live</span></div>
+            <div class="job-date">2026</div>
+          </div>
+          <p>Idempotent Greenhouse&rarr;HRIS/Airtable provisioning service: HMAC-verified
+             webhooks, an ordered task saga with retry/backoff and dead-lettering, two-way
+             drift reconciliation, and an append-only audit trail. 22 tests, ~98% coverage,
+             green CI.</p>
+          <div class="stack-line">TypeScript · Node · Fastify · SQLite · Zod · Vitest · GitHub Actions</div>
+          <a class="link" href="https://github.com/kamilch1k/hire-bridge">github.com/kamilch1k/hire-bridge</a>
+        </div>
+
+        <div class="job">
+          <div class="job-head">
+            <div class="job-title">ledgerline — fintech payments &amp; origination platform<span class="badge live">v1 Live</span></div>
+            <div class="job-date">2026</div>
+          </div>
+          <p>Idempotent, concurrency-safe double-entry ledger in Go (v1 shipped):
+             exactly-once transfers via an Idempotency-Key, no overdraft under
+             concurrency (row-level SELECT FOR UPDATE), and balanced books — proven
+             by tests against real Postgres and race-tested in CI. v1.1 adds gRPC;
+             v2 adds event sourcing, a loan-origination FSM (HTTP), a transactional
+             outbox/relay, an AML consumer, and a dbt/DuckDB risk-analytics layer.</p>
+          <div class="stack-line">Go · PostgreSQL (pgx) · net/http · embedded-postgres · GitHub Actions · ~89% coverage</div>
+          <a class="link" href="https://github.com/kamilch1k/ledgerline">github.com/kamilch1k/ledgerline</a>
+        </div>
+
+        <div class="job">
+          <div class="job-head">
+            <div class="job-title">mxkit — Mexican fintech validators (Go)<span class="badge live">Live</span></div>
+            <div class="job-date">2026</div>
+          </div>
+          <p>Dependency-free Go library: CLABE interbank-account check-digit
+             validation/generation and payment-card tooling (Luhn, brand, masking,
+             expiry). Table-driven tests, ~91% coverage, green CI.</p>
+          <div class="stack-line">Go · zero dependencies · CLI</div>
+          <a class="link" href="https://github.com/kamilch1k/mxkit">github.com/kamilch1k/mxkit</a>
+        </div>
+
+        <div class="job">
+          <div class="job-head">
+            <div class="job-title">centavo — exact money type (Go)<span class="badge live">Live</span></div>
+            <div class="job-date">2026</div>
+          </div>
+          <p>Integer-minor-unit money type with exact decimal parsing and
+             remainder-safe allocation that never loses a cent — verified by a
+             5,000-case conservation property test. ~93% coverage.</p>
+          <div class="stack-line">Go · zero dependencies</div>
+          <a class="link" href="https://github.com/kamilch1k/centavo">github.com/kamilch1k/centavo</a>
+        </div>
+      </section>
+
+      <section>
+        <div class="sec-title">Side Projects</div>
+
+        <div class="job">
+          <div class="job-head">
+            <div class="job-title">Mobile destruction-physics game · <span class="job-co">BitSlop</span><span class="badge live">Shipped</span></div>
+            <div class="job-date">2026</div>
+          </div>
+          <p>Gameplay and a mobile destruction-physics system (inspired by Teardown)
+             for a published title — heavy focus on performance and memory on
+             constrained hardware. One of a broad portfolio of game &amp; engine
+             side-projects.</p>
+          <div class="stack-line">C# · Unity · performance &amp; memory optimization</div>
+          <a class="link" href="https://play.google.com/store/apps/details?id=com.bitslop.voxelsuvivors">play.google.com/store/apps/details?id=com.bitslop.voxelsuvivors</a>
+        </div>
+      </section>
+
+      <p class="footnote">
+        Working note (hidden when printed): fill in real contact links + the
+        Education detail; the flagship repo link goes live as it's built. Skills
+        tagged in teal are demonstrated in the ledgerline build —
+        keep only what you can defend in interview.
+      </p>
+    </main>
+  </div>
+</body>
+</html>

@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kamil Gilfanov — Backend / Full-Stack Engineer</title>
+<meta name="description" content="Backend / full-stack software engineer building fintech-grade systems in Go, Python, and TypeScript.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#15191f;
+    --body:#39414c;
+    --muted:#727b88;
+    --line:#e4e7ec;
+    --accent:#0e6b6b;
+    --accent-soft:#e6f1f0;
+    --bg:#ffffff;
+    --rail:#f7f8f9;
+    --page:#d9dde2;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--page);
+    font-family:'Inter',system-ui,sans-serif;
+    color:var(--body);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+  .wrap{
+    max-width:960px;
+    margin:0 auto;
+    background:var(--bg);
+    min-height:100vh;
+    box-shadow:0 10px 40px rgba(20,25,31,.16);
+  }
+
+  /* ---- Nav ---- */
+  nav{
+    position:sticky; top:0; z-index:10;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 40px;
+    background:rgba(255,255,255,.86);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .brand{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:700; font-size:15px; color:var(--ink);
+    letter-spacing:-.01em;
+  }
+  .brand span{color:var(--accent);}
+  .navlinks{display:flex; gap:22px;}
+  .navlinks a{
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--muted); text-decoration:none;
+  }
+  .navlinks a:hover{color:var(--accent);}
+
+  /* ---- Hero ---- */
+  header{padding:64px 40px 40px;}
+  .eyebrow{
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px; letter-spacing:.16em; text-transform:uppercase;
+    color:var(--accent); margin-bottom:14px;
+  }
+  h1{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:54px; font-weight:700; letter-spacing:-.02em;
+    color:var(--ink); line-height:1.02;
+  }
+  .role{
+    font-family:'JetBrains Mono',monospace;
+    font-size:14px; letter-spacing:.04em; color:var(--accent);
+    margin-top:12px;
+  }
+  .tagline{
+    font-size:16px; color:var(--body); margin-top:18px; max-width:60ch;
+  }
+  .meta{
+    display:flex; flex-wrap:wrap; gap:18px; margin-top:18px;
+    font-family:'JetBrains Mono',monospace; font-size:11.5px; color:var(--muted);
+  }
+  .meta b{color:var(--ink); font-weight:500;}
+  .cta{display:flex; flex-wrap:wrap; gap:10px; margin-top:26px;}
+  .btn{
+    font-family:'JetBrains Mono',monospace; font-size:12px;
+    text-decoration:none; padding:9px 16px; border-radius:6px;
+    border:1px solid var(--line); color:var(--body); background:#fff;
+    transition:.15s;
+  }
+  .btn:hover{border-color:var(--accent); color:var(--accent);}
+  .btn.primary{background:var(--accent); color:#fff; border-color:var(--accent);}
+  .btn.primary:hover{background:#0a5757; color:#fff;}
+
+  /* ---- Sections ---- */
+  section{padding:32px 40px;}
+  .sec-title{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:13px; font-weight:600; letter-spacing:.04em; text-transform:uppercase;
+    color:var(--ink); display:flex; align-items:center; gap:12px; margin-bottom:22px;
+  }
+  .sec-title::after{content:""; flex:1; height:1px; background:var(--line);}
+
+  .about-text{font-size:15px; color:var(--body); max-width:70ch;}
+  .about-text b{color:var(--ink); font-weight:600;}
+
+  /* ---- Skills ---- */
+  .skillgrid{display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:18px;}
+  .skillgroup .lbl{font-size:12px; font-weight:600; color:var(--ink); margin-bottom:8px;}
+  .tags{display:flex; flex-wrap:wrap; gap:6px;}
+  .tag{
+    font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--body);
+    background:#fff; border:1px solid var(--line); border-radius:4px; padding:4px 8px;
+  }
+  .tag.key{background:var(--accent-soft); border-color:#bfe0dd; color:var(--accent);}
+
+  /* ---- Projects ---- */
+  .feature{
+    border:1px solid var(--line); border-radius:12px; padding:26px 26px 24px;
+    background:linear-gradient(180deg,#fbfcfc, #fff);
+  }
+  .feature .ftag{
+    font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--accent); margin-bottom:8px;
+  }
+  .proj-head{display:flex; align-items:baseline; gap:12px; flex-wrap:wrap;}
+  .proj-name{font-family:'Space Grotesk',sans-serif; font-size:22px; font-weight:600; color:var(--ink);}
+  .proj-sub{font-size:14.5px; color:var(--body); margin-top:8px; max-width:72ch;}
+  .stack{display:flex; flex-wrap:wrap; gap:6px; margin-top:14px;}
+  .badge{
+    font-family:'JetBrains Mono',monospace; font-size:9.5px; letter-spacing:.08em;
+    text-transform:uppercase; padding:3px 8px; border-radius:5px; white-space:nowrap;
+  }
+  .badge.live{background:var(--accent); color:#fff;}
+  .badge.wip{background:#fff; border:1px solid #d8b36b; color:#9a6b16;}
+  .badge.plan{background:#fff; border:1px solid var(--line); color:var(--muted);}
+
+  .milestones{list-style:none; margin-top:18px; display:grid; gap:9px;}
+  .milestones li{
+    position:relative; padding-left:20px; font-size:13px; color:var(--body);
+  }
+  .milestones li::before{
+    content:""; position:absolute; left:0; top:7px; width:7px; height:7px;
+    border-radius:50%; background:var(--accent);
+  }
+  .milestones li.todo::before{background:#fff; border:1.5px solid #c9cdd3;}
+
+  .proj-links{display:flex; gap:16px; margin-top:18px; flex-wrap:wrap;}
+  .proj-links a, .proj-links span{
+    font-family:'JetBrains Mono',monospace; font-size:11.5px; text-decoration:none;
+    color:var(--accent);
+  }
+  .proj-links span{color:var(--muted);}
+  .proj-links a:hover{text-decoration:underline;}
+
+  .grid{display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:18px;}
+  .card{
+    border:1px solid var(--line); border-radius:12px; padding:20px;
+    display:flex; flex-direction:column; transition:.15s;
+  }
+  .card:hover{border-color:#bfe0dd; box-shadow:0 6px 22px rgba(14,107,107,.07);}
+  .card .proj-name{font-size:17px;}
+  .card .proj-sub{font-size:13px; margin-top:7px;}
+  .card .stack{margin-top:auto; padding-top:14px;}
+
+  /* ---- Practices strip ---- */
+  .practices{display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:16px;}
+  .practice{border-left:2px solid var(--accent-soft); padding-left:14px;}
+  .practice h4{font-family:'Space Grotesk',sans-serif; font-size:13px; color:var(--ink); margin-bottom:5px;}
+  .practice p{font-size:12.5px; color:var(--body);}
+
+  footer{
+    padding:34px 40px 48px; border-top:1px solid var(--line); margin-top:16px;
+    display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap; align-items:center;
+  }
+  .foot-links{display:flex; gap:18px; flex-wrap:wrap;}
+  .foot-links a{
+    font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--accent); text-decoration:none;
+  }
+  .foot-note{font-family:'JetBrains Mono',monospace; font-size:10.5px; color:var(--muted);}
+
+  @media (max-width:720px){
+    nav{padding:14px 20px;} .navlinks{gap:14px;}
+    header{padding:44px 20px 30px;} h1{font-size:40px;}
+    section{padding:28px 20px;}
+    .grid{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <nav>
+      <div class="brand">Kamil <span>Gilfanov</span></div>
+      <div class="navlinks">
+        <a href="#work">Work</a>
+        <a href="#skills">Skills</a>
+        <a href="#practices">Practices</a>
+        <a href="cv.html">CV</a>
+        <a href="https://github.com/kamilch1k" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </nav>
+
+    <header>
+      <div class="eyebrow">Backend · Fintech · Full-stack</div>
+      <h1>Kamil Gilfanov</h1>
+      <div class="role">Backend / Full-Stack Software Engineer</div>
+      <p class="tagline">
+        I build correctness-first backend systems — and I'm proving it by shipping
+        a fintech-grade payments &amp; loan-origination platform in Go: idempotent,
+        event-driven, and tested for the failure modes a real payments team is paid
+        to prevent.
+      </p>
+      <div class="meta">
+        <span><b>Location</b> — Türkiye, open to remote / hybrid</span>
+        <span><b>English</b> — professional</span>
+        <span><b>Focus</b> — Go · Postgres · Kafka · testing</span>
+      </div>
+      <div class="cta">
+        <a class="btn primary" href="#work">View work ↓</a>
+        <a class="btn" href="cv.html">Download CV</a>
+        <a class="btn" href="https://github.com/kamilch1k" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn" href="mailto:your.email@example.com">Email</a>
+      </div>
+    </header>
+
+    <section id="about">
+      <div class="sec-title">About</div>
+      <p class="about-text">
+        Backend-focused engineer (<b>.NET, Go, TypeScript</b>) with a strong CS
+        &amp; mathematics foundation (<b>METU</b>). I build practical, runnable
+        systems and care about the parts that are easy to get wrong — idempotency,
+        concurrency, outbox-style workflows, and failure recovery — backed by real
+        tests, CI, and local verification. My graduation project is a
+        physics-informed neural radiance field in PyTorch. Right now I'm going deep
+        on the slice fintech teams hire for: money-safe ledgers, idempotent APIs,
+        event streaming, and risk analytics.
+      </p>
+    </section>
+
+    <section id="skills">
+      <div class="sec-title">Skills</div>
+      <div class="skillgrid">
+        <div class="skillgroup">
+          <div class="lbl">Backend</div>
+          <div class="tags">
+            <span class="tag key">Go</span><span class="tag key">C# / .NET</span>
+            <span class="tag">ASP.NET Core</span><span class="tag">Python</span>
+            <span class="tag">gRPC</span><span class="tag">REST</span>
+          </div>
+        </div>
+        <div class="skillgroup">
+          <div class="lbl">Data &amp; Infra</div>
+          <div class="tags">
+            <span class="tag key">PostgreSQL</span><span class="tag">SQL</span>
+            <span class="tag">Kafka</span><span class="tag">Docker</span>
+            <span class="tag">CI/CD</span><span class="tag">dbt</span>
+          </div>
+        </div>
+        <div class="skillgroup">
+          <div class="lbl">Frontend</div>
+          <div class="tags">
+            <span class="tag key">TypeScript</span><span class="tag">Three.js</span>
+            <span class="tag">Angular</span><span class="tag">HTML/CSS</span>
+          </div>
+        </div>
+        <div class="skillgroup">
+          <div class="lbl">Testing</div>
+          <div class="tags">
+            <span class="tag">Ginkgo/gomega</span><span class="tag">testcontainers</span>
+            <span class="tag">Allure</span><span class="tag">Vitest</span>
+          </div>
+        </div>
+        <div class="skillgroup">
+          <div class="lbl">Tools</div>
+          <div class="tags">
+            <span class="tag">Git</span><span class="tag">Linux</span>
+            <span class="tag">PyTorch</span><span class="tag">EF Core</span>
+            <span class="tag">Profiling</span>
+          </div>
+        </div>
+        <div class="skillgroup">
+          <div class="lbl">Game Dev</div>
+          <div class="tags">
+            <span class="tag">Unity</span><span class="tag">UniTask</span>
+            <span class="tag">Zenject</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="work">
+      <div class="sec-title">Selected Work</div>
+
+      <div class="grid">
+        <div class="card">
+          <div class="proj-head">
+            <div class="proj-name">ledgerline</div>
+            <span class="badge live">Live</span>
+          </div>
+          <p class="proj-sub">
+            Event-driven double-entry ledger in Go: idempotent, concurrency-safe
+            transfers (no overdraft under load), gRPC, a transactional outbox + AML
+            consumer, a loan-origination state machine, and a dbt risk-analytics
+            layer. Tested against real Postgres; race-checked, ~88% coverage.
+          </p>
+          <div class="stack">
+            <span class="tag key">Go</span><span class="tag">PostgreSQL</span>
+            <span class="tag">gRPC</span><span class="tag">Kafka</span><span class="tag">dbt</span>
+          </div>
+          <div class="proj-links" style="margin-top:14px;">
+            <a href="https://github.com/kamilch1k/ledgerline" target="_blank" rel="noopener">Repo ↗</a>
+            <span>race-tested · CI green</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="proj-head">
+            <div class="proj-name">signalforge</div>
+            <span class="badge live">Live</span>
+          </div>
+          <p class="proj-sub">
+            A vacancy-to-OSS proof engine: maps backend job postings to concrete
+            open-source contribution opportunities, scores fit, and tracks proof
+            actions with idempotency keys — shipped with a UI, CI, Docker, and tests.
+          </p>
+          <div class="stack">
+            <span class="tag key">C# / .NET</span><span class="tag">ASP.NET Core</span>
+            <span class="tag">SQLite</span><span class="tag">GitHub API</span>
+          </div>
+          <div class="proj-links" style="margin-top:14px;">
+            <a href="https://github.com/kamilch1k/signalforge" target="_blank" rel="noopener">Repo ↗</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="proj-head">
+            <div class="proj-name">mixed-order-ledger-system</div>
+            <span class="badge live">Live</span>
+          </div>
+          <p class="proj-sub">
+            A mixed .NET + Go system: an order API emits durable outbox events that
+            a Go worker processes into ledger entries, with end-to-end local
+            verification — the outbox pattern across two languages.
+          </p>
+          <div class="stack">
+            <span class="tag key">.NET</span><span class="tag key">Go</span>
+            <span class="tag">outbox</span><span class="tag">worker</span>
+          </div>
+          <div class="proj-links" style="margin-top:14px;">
+            <a href="https://github.com/kamilch1k/mixed-order-ledger-system" target="_blank" rel="noopener">Repo ↗</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="proj-head">
+            <div class="proj-name">physics-informed-nerf</div>
+            <span class="badge plan">B.Sc. thesis</span>
+          </div>
+          <p class="proj-sub">
+            My graduation project: a physics-informed neural radiance field in
+            PyTorch, adding normal-consistency and Lambertian regularizers to
+            recover cleaner geometry from images.
+          </p>
+          <div class="stack">
+            <span class="tag key">Python</span><span class="tag">PyTorch</span>
+            <span class="tag">NeRF</span><span class="tag">research</span>
+          </div>
+          <div class="proj-links" style="margin-top:14px;">
+            <a href="https://github.com/kamilch1k/physics-informed-nerf" target="_blank" rel="noopener">Repo ↗</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="proj-head">
+            <div class="proj-name">go-url-shortener-api</div>
+            <span class="badge live">Live</span>
+          </div>
+          <p class="proj-sub">
+            A Go URL shortener service: short links, redirects, click analytics,
+            rate limiting, metrics, and HTTP tests — a compact, production-shaped API.
+          </p>
+          <div class="stack">
+            <span class="tag key">Go</span><span class="tag">rate limiting</span>
+            <span class="tag">metrics</span>
+          </div>
+          <div class="proj-links" style="margin-top:14px;">
+            <a href="https://github.com/kamilch1k/go-url-shortener-api" target="_blank" rel="noopener">Repo ↗</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="proj-head">
+            <div class="proj-name">hire-bridge</div>
+            <span class="badge live">Live</span>
+          </div>
+          <p class="proj-sub">
+            A Greenhouse-ATS → HRIS/Airtable onboarding integration service:
+            HMAC-verified webhooks, an idempotent task saga, retry/backoff with
+            dead-letter, and a nightly drift reconciler with an append-only audit
+            trail. Solves a real day-one ops problem.
+          </p>
+          <div class="stack">
+            <span class="tag key">TypeScript</span><span class="tag">Node / Fastify</span>
+            <span class="tag">Prisma</span><span class="tag">Zod</span>
+            <span class="tag">Vitest</span>
+          </div>
+          <div class="proj-links" style="margin-top:14px;">
+            <a href="https://github.com/kamilch1k/hire-bridge" target="_blank" rel="noopener">Repo ↗</a>
+            <span>22 tests · CI green</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="proj-head">
+            <div class="proj-name">Vellum</div>
+            <span class="badge live">Live</span>
+          </div>
+          <p class="proj-sub">
+            A one-button ink-physics arcade game — fling a gooey ink blob and
+            splatter through the targets. Canvas 2D soft-body rendering,
+            fixed-step physics, slow-mo juice, and procedural Web Audio.
+          </p>
+          <div class="stack">
+            <span class="tag key">TypeScript</span><span class="tag">Canvas 2D</span>
+            <span class="tag">Vite</span>
+          </div>
+          <div class="proj-links" style="margin-top:14px;">
+            <a href="https://kamilch1k.github.io/vellum/" target="_blank" rel="noopener">Play ↗</a>
+            <a href="https://github.com/kamilch1k/vellum" target="_blank" rel="noopener">Repo ↗</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="proj-head">
+            <div class="proj-name">mxkit</div>
+            <span class="badge live">Live</span>
+          </div>
+          <p class="proj-sub">
+            Dependency-free Go validators for Mexican fintech: CLABE interbank
+            accounts (check-digit validate/generate) and payment-card tooling
+            (Luhn, brand, masking, expiry). Table-driven tests, CLI.
+          </p>
+          <div class="stack">
+            <span class="tag key">Go</span><span class="tag">zero deps</span>
+            <span class="tag">CLABE / cards</span>
+          </div>
+          <div class="proj-links" style="margin-top:14px;">
+            <a href="https://github.com/kamilch1k/mxkit" target="_blank" rel="noopener">Repo ↗</a>
+            <span>91% coverage · CI green</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="proj-head">
+            <div class="proj-name">centavo</div>
+            <span class="badge live">Live</span>
+          </div>
+          <p class="proj-sub">
+            A tiny Go money type: integer minor units, exact decimal parsing, and
+            remainder-safe allocation that never loses a cent — proven by a
+            5,000-case conservation property test.
+          </p>
+          <div class="stack">
+            <span class="tag key">Go</span><span class="tag">zero deps</span>
+            <span class="tag">money</span>
+          </div>
+          <div class="proj-links" style="margin-top:14px;">
+            <a href="https://github.com/kamilch1k/centavo" target="_blank" rel="noopener">Repo ↗</a>
+            <span>93% coverage · CI green</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="proj-head">
+            <div class="proj-name">lattice-survivors</div>
+            <span class="badge live">Live</span>
+          </div>
+          <p class="proj-sub">
+            A procedural Three.js survivors arena — full-screen WebGL with a
+            crystal-lattice shader, wave gameplay, and desktop/mobile controls.
+            Deployed to GitHub Pages.
+          </p>
+          <div class="stack">
+            <span class="tag key">Three.js</span><span class="tag">WebGL</span>
+            <span class="tag">JavaScript</span>
+          </div>
+          <div class="proj-links" style="margin-top:14px;">
+            <a href="https://kamilch1k.github.io/lattice-survivors/" target="_blank" rel="noopener">Play ↗</a>
+            <a href="https://github.com/kamilch1k/lattice-survivors" target="_blank" rel="noopener">Repo ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="sec-title" style="margin-top:36px;">Side Projects — for fun</div>
+      <div class="grid">
+        <div class="card">
+          <div class="proj-head">
+            <div class="proj-name">BitSlop</div>
+            <span class="badge live">Shipped</span>
+          </div>
+          <p class="proj-sub">
+            For fun: an optimized mobile <b>destruction-physics pipeline</b>
+            (Teardown-style voxel destruction) tuned hard for performance and
+            memory on constrained hardware, in a published title.
+          </p>
+          <div class="stack">
+            <span class="tag">C#</span><span class="tag">Unity</span>
+            <span class="tag">physics</span><span class="tag">optimization</span>
+          </div>
+          <div class="proj-links" style="margin-top:14px;">
+            <a href="https://play.google.com/store/apps/details?id=com.bitslop.voxelsuvivors" target="_blank" rel="noopener">Google Play ↗</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="proj-head">
+            <div class="proj-name">incremental-survivors</div>
+            <span class="badge live">Live</span>
+          </div>
+          <p class="proj-sub">
+            A single-file browser survivors game: pixel art, procedural audio, idle
+            progression, and casino-relic upgrades — one of a broad portfolio of
+            game &amp; engine prototypes.
+          </p>
+          <div class="stack">
+            <span class="tag">HTML</span><span class="tag">JavaScript</span>
+            <span class="tag">single-file</span>
+          </div>
+          <div class="proj-links" style="margin-top:14px;">
+            <a href="https://kamilch1k.github.io/incremental-survivors/" target="_blank" rel="noopener">Play ↗</a>
+            <a href="https://github.com/kamilch1k/incremental-survivors" target="_blank" rel="noopener">Repo ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="practices">
+      <div class="sec-title">How I build</div>
+      <div class="practices">
+        <div class="practice">
+          <h4>Tests first</h4>
+          <p>Failing edge-case tests committed RED, then GREEN — money rounding, idempotency on retry, concurrent double-spend.</p>
+        </div>
+        <div class="practice">
+          <h4>Green CI everywhere</h4>
+          <p>GitHub Actions runs lint, vet/typecheck and the full test suite on every push. Badges reflect reality.</p>
+        </div>
+        <div class="practice">
+          <h4>Decisions written down</h4>
+          <p>Each repo has a DESIGN.md: why this isolation level, why int64 minor units, why idempotency keys.</p>
+        </div>
+        <div class="practice">
+          <h4>Runnable in 5 minutes</h4>
+          <p>clone → one command → running. Docker Compose or a single test command, no environment debugging.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="foot-links">
+        <a href="https://github.com/kamilch1k" target="_blank" rel="noopener">GitHub</a>
+        <a href="#" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:your.email@example.com">Email</a>
+        <a href="cv.html">CV</a>
+      </div>
+      <div class="foot-note">Built by hand — HTML/CSS, no framework.</div>
+    </footer>
+  </div>
+</body>
+</html>
