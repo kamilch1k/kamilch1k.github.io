@@ -299,9 +299,7 @@
       <div class="grid">
         <div class="card">
           <div class="proj-head">
-            <div class="proj-name">ledgerline</div>
-            <span class="badge live">Live</span>
-          </div>
+            <div class="proj-name">ledgerline</div>          </div>
           <p class="proj-sub">
             Event-driven double-entry ledger in Go: idempotent, concurrency-safe
             transfers (no overdraft under load), gRPC, a transactional outbox + AML
@@ -320,9 +318,46 @@
 
         <div class="card">
           <div class="proj-head">
-            <div class="proj-name">signalforge</div>
-            <span class="badge live">Live</span>
+            <div class="proj-name">matchbox</div>
           </div>
+          <p class="proj-sub">
+            A limit-order-book matching engine in modern C++20: price-time priority,
+            LIMIT/MARKET/IOC/FOK orders, O(1) cancels — ~8.6M orders/sec single-threaded.
+            Property/fuzz-tested (book invariants + quantity conservation), deterministic
+            replay, ASan/UBSan CI.
+          </p>
+          <div class="stack">
+            <span class="tag key">C++20</span><span class="tag">CMake</span>
+            <span class="tag">zero deps</span><span class="tag">benchmarks</span>
+          </div>
+          <div class="proj-links" style="margin-top:14px;">
+            <a href="https://github.com/kamilch1k/matchbox" target="_blank" rel="noopener">Repo ↗</a>
+            <span>~8.6M orders/s · CI green</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="proj-head">
+            <div class="proj-name">lumen</div>
+          </div>
+          <p class="proj-sub">
+            A Monte Carlo path tracer from scratch in pure Python + NumPy — no OpenGL.
+            Reflection, Fresnel-glass refraction (with total internal reflection), soft
+            shadows, and depth of field, vectorized one bounce at a time.
+          </p>
+          <div class="stack">
+            <span class="tag key">Python</span><span class="tag">NumPy</span>
+            <span class="tag">ray tracing</span><span class="tag">graphics</span>
+          </div>
+          <div class="proj-links" style="margin-top:14px;">
+            <a href="https://github.com/kamilch1k/lumen" target="_blank" rel="noopener">Repo ↗</a>
+            <span>physically-based rendering</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="proj-head">
+            <div class="proj-name">signalforge</div>          </div>
           <p class="proj-sub">
             A vacancy-to-OSS proof engine: maps backend job postings to concrete
             open-source contribution opportunities, scores fit, and tracks proof
@@ -339,9 +374,7 @@
 
         <div class="card">
           <div class="proj-head">
-            <div class="proj-name">mixed-order-ledger-system</div>
-            <span class="badge live">Live</span>
-          </div>
+            <div class="proj-name">mixed-order-ledger-system</div>          </div>
           <p class="proj-sub">
             A mixed .NET + Go system: an order API emits durable outbox events that
             a Go worker processes into ledger entries, with end-to-end local
@@ -377,9 +410,7 @@
 
         <div class="card">
           <div class="proj-head">
-            <div class="proj-name">go-url-shortener-api</div>
-            <span class="badge live">Live</span>
-          </div>
+            <div class="proj-name">go-url-shortener-api</div>          </div>
           <p class="proj-sub">
             A Go URL shortener service: short links, redirects, click analytics,
             rate limiting, metrics, and HTTP tests — a compact, production-shaped API.
@@ -395,9 +426,7 @@
 
         <div class="card">
           <div class="proj-head">
-            <div class="proj-name">hire-bridge</div>
-            <span class="badge live">Live</span>
-          </div>
+            <div class="proj-name">hire-bridge</div>          </div>
           <p class="proj-sub">
             A Greenhouse-ATS → HRIS/Airtable onboarding integration service:
             HMAC-verified webhooks, an idempotent task saga, retry/backoff with
@@ -417,9 +446,7 @@
 
         <div class="card">
           <div class="proj-head">
-            <div class="proj-name">Vellum</div>
-            <span class="badge live">Live</span>
-          </div>
+            <div class="proj-name">Vellum</div>          </div>
           <p class="proj-sub">
             A one-button ink-physics arcade game — fling a gooey ink blob and
             splatter through the targets. Canvas 2D soft-body rendering,
@@ -437,9 +464,7 @@
 
         <div class="card">
           <div class="proj-head">
-            <div class="proj-name">mxkit</div>
-            <span class="badge live">Live</span>
-          </div>
+            <div class="proj-name">mxkit</div>          </div>
           <p class="proj-sub">
             Dependency-free Go validators for Mexican fintech: CLABE interbank
             accounts (check-digit validate/generate) and payment-card tooling
@@ -457,9 +482,7 @@
 
         <div class="card">
           <div class="proj-head">
-            <div class="proj-name">centavo</div>
-            <span class="badge live">Live</span>
-          </div>
+            <div class="proj-name">centavo</div>          </div>
           <p class="proj-sub">
             A tiny Go money type: integer minor units, exact decimal parsing, and
             remainder-safe allocation that never loses a cent — proven by a
@@ -477,9 +500,7 @@
 
         <div class="card">
           <div class="proj-head">
-            <div class="proj-name">lattice-survivors</div>
-            <span class="badge live">Live</span>
-          </div>
+            <div class="proj-name">lattice-survivors</div>          </div>
           <p class="proj-sub">
             A procedural Three.js survivors arena — full-screen WebGL with a
             crystal-lattice shader, wave gameplay, and desktop/mobile controls.
@@ -519,9 +540,7 @@
 
         <div class="card">
           <div class="proj-head">
-            <div class="proj-name">incremental-survivors</div>
-            <span class="badge live">Live</span>
-          </div>
+            <div class="proj-name">incremental-survivors</div>          </div>
           <p class="proj-sub">
             A single-file browser survivors game: pixel art, procedural audio, idle
             progression, and casino-relic upgrades — one of a broad portfolio of
