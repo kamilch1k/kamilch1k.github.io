@@ -216,36 +216,36 @@
   .side-sec{display:none;}
   .footnote{display:none;}
 
-  .rail{padding:8mm 7mm 6mm;}
-  .rail h2{margin:9px 0 4px;font-size:8.5px;}
-  .contact a, .contact span{font-size:10px;margin-bottom:2px;}
-  .skillgroup{margin-bottom:6px;}
-  .skillgroup .lbl{font-size:9.5px;margin-bottom:3px;}
-  .tags{gap:3px;}
-  .tag{font-size:9px;padding:1.5px 5px;}
-  .langline{font-size:10px;}
-  .about{font-size:9.2px;line-height:1.3;}
+  .rail{padding:9mm 8mm 6mm;}
+  .rail h2{margin:11px 0 5px;font-size:9.5px;}
+  .contact a, .contact span{font-size:11.5px;margin-bottom:3px;}
+  .skillgroup{margin-bottom:8px;}
+  .skillgroup .lbl{font-size:11px;margin-bottom:4px;}
+  .tags{gap:4px;}
+  .tag{font-size:10.5px;padding:2.5px 6px;}
+  .langline{font-size:11.5px;}
+  .about{font-size:11px;line-height:1.4;}
 
-  .main{padding:7mm 11mm 4mm;}
-  .name{font-size:22px;}
-  .role{font-size:9.5px;margin-top:3px;}
-  .summary{font-size:9.4px;margin-top:5px;padding-top:5px;line-height:1.3;max-width:none;}
+  .main{padding:9mm 12mm 6mm;}
+  .name{font-size:28px;}
+  .role{font-size:12px;margin-top:5px;}
+  .summary{font-size:12px;margin-top:9px;padding-top:9px;line-height:1.45;max-width:none;}
 
-  section{margin-top:5px;}
-  .sec-title{font-size:10px;margin-bottom:5px;}
+  section{margin-top:9px;}
+  .sec-title{font-size:12.5px;margin-bottom:9px;}
 
-  .job{margin-bottom:3px;padding-left:13px;}
-  .job::before{top:4px;width:5px;height:5px;}
-  .job::after{left:2px;top:11px;bottom:-6px;}
-  .job-title{font-size:10px;}
-  .job-date{font-size:8.5px;}
-  .job p{font-size:9.2px;margin-top:1.5px;line-height:1.25;max-width:none;}
-  .stack-line{font-size:7.5px;margin-top:1.5px;}
-  .job .link{font-size:8.5px;}
-  .badge{font-size:7px;padding:1px 4px;margin-left:5px;}
+  .job{margin-bottom:5px;padding-left:17px;}
+  .job::before{top:5px;width:6px;height:6px;}
+  .job::after{left:2.5px;top:14px;bottom:-9px;}
+  .job-title{font-size:12.5px;}
+  .job-date{font-size:10px;}
+  .job p{font-size:11.5px;margin-top:3px;line-height:1.45;max-width:none;}
+  .stack-line{font-size:9.5px;margin-top:3px;}
+  .job .link{font-size:10px;}
+  .badge{font-size:8px;padding:1px 5px;margin-left:6px;}
 
-  .edu-school{font-size:11px;}
-  .edu-row .job-date{font-size:9px;}
+  .edu-school{font-size:12.5px;}
+  .edu-row .job-date{font-size:10.5px;}
 
   @media print{
     @page{size:A4;margin:0;}
@@ -438,16 +438,6 @@
 
         <div class="job">
           <div class="job-head">
-            <div class="job-title">mixed-order-ledger-system — cross-language outbox</div>
-            <div class="job-date">2026</div>
-          </div>
-          <p>ASP.NET Core order API emits durable outbox events (idempotent); a Go worker consumes them into ledger entries. Event-driven, no infra needed; .NET + Go tests.</p>
-          <div class="stack-line">.NET · Go · outbox pattern · idempotency · tests</div>
-          <a class="link" href="https://github.com/kamilch1k/mixed-order-ledger-system">github.com/kamilch1k/mixed-order-ledger-system</a>
-        </div>
-
-        <div class="job">
-          <div class="job-head">
             <div class="job-title">hire-bridge — onboarding integration service (TS)</div>
             <div class="job-date">2026</div>
           </div>
@@ -456,27 +446,6 @@
           <a class="link" href="https://github.com/kamilch1k/hire-bridge">github.com/kamilch1k/hire-bridge</a>
         </div>
 
-        <div class="job">
-          <div class="job-head">
-            <div class="job-title">job-application-tracker-api — auth'd REST backend</div>
-            <div class="job-date">2026</div>
-          </div>
-          <p>ASP.NET Core REST API: JWT/Identity auth, user-isolated data, and a background worker for due follow-ups; PostgreSQL via EF Core, integration tests, Docker, CI.</p>
-          <div class="stack-line">.NET · ASP.NET Core · EF Core · PostgreSQL · JWT · xUnit</div>
-          <a class="link" href="https://github.com/kamilch1k/job-application-tracker-api">github.com/kamilch1k/job-application-tracker-api</a>
-        </div>
-
-        <div class="job">
-          <div class="job-head">
-            <div class="job-title">droolcat-agent — visual cockpit for Claude Code (Tauri/Rust)</div>
-            <div class="job-date">2026</div>
-          </div>
-          <p>Tauri v2 desktop app that drives the Claude Code CLI headless and renders its agents, tool calls,
-             and code as live, navigable graphs — a Rust bridge streaming <code>stream-json</code> into a
-             vanilla-JS canvas reducer (pan/zoom board, lanes, replay).</p>
-          <div class="stack-line">Rust · Tauri v2 · TypeScript/JS · Canvas · stream-json</div>
-          <a class="link" href="https://github.com/kamilch1k/droolcat-agent">github.com/kamilch1k/droolcat-agent</a>
-        </div>
       </section>
 
       <section class="side-sec">
