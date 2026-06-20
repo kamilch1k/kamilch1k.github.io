@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CV (ATS) — Kamil Gilfanov</title>
+<style>
+  /* Single-column, plain-text-first layout for resume parsers (ATS).
+     No multi-column grid, no icons, no content in pseudo-elements. */
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html,body{background:#fff;}
+  body{
+    font-family:Arial,Helvetica,"Segoe UI",sans-serif;
+    color:#1a1a1a;
+    font-size:10.4px;
+    line-height:1.36;
+    -webkit-font-smoothing:antialiased;
+  }
+  .page{
+    width:210mm;
+    min-height:297mm;
+    margin:0 auto;
+    background:#fff;
+    padding:11mm 15mm;
+  }
+  h1{
+    font-size:21px;
+    font-weight:700;
+    letter-spacing:.2px;
+    color:#111;
+  }
+  .role{
+    font-size:12px;
+    font-weight:600;
+    color:#0e6b6b;
+    margin-top:2px;
+  }
+  .contact{
+    font-size:10.3px;
+    color:#333;
+    margin-top:5px;
+  }
+  .contact a{color:#1a1a1a;text-decoration:none;}
+  h2{
+    font-size:11.5px;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:.6px;
+    color:#111;
+    border-bottom:1px solid #bbb;
+    padding-bottom:2px;
+    margin:13px 0 7px;
+  }
+  p.summary{margin-top:9px;font-size:10.7px;color:#222;}
+  .skill-row{margin-bottom:3px;}
+  .skill-row b{color:#111;}
+  .entry{margin-bottom:6px;}
+  .entry-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    gap:14px;
+  }
+  .entry-title{font-weight:700;color:#111;font-size:11px;}
+  .entry-co{font-weight:700;color:#0e6b6b;}
+  .entry-date{font-size:10px;color:#555;white-space:nowrap;}
+  .entry p{margin-top:2px;color:#222;}
+  .entry .stack{color:#555;font-size:10px;margin-top:2px;}
+  .entry .link{color:#0e6b6b;font-size:10px;text-decoration:none;}
+  .edu-thesis{margin-top:2px;color:#222;}
+
+  @media print{
+    @page{size:A4;margin:0;}
+    *{-webkit-print-color-adjust:exact !important;print-color-adjust:exact !important;}
+    .page{width:210mm;min-height:auto;}
+  }
+</style>
+</head>
+<body>
+  <div class="page">
+    <h1>Kamil Gilfanov</h1>
+    <div class="role">Backend / Full-Stack Software Engineer</div>
+    <div class="contact">
+      T&uuml;rkiye — open to remote / hybrid &nbsp;|&nbsp;
+      <a href="mailto:rewwernick@gmail.com">rewwernick@gmail.com</a> &nbsp;|&nbsp;
+      <a href="https://www.linkedin.com/in/kamil-gilfanov-676350275/">linkedin.com/in/kamil-gilfanov-676350275</a> &nbsp;|&nbsp;
+      <a href="https://github.com/kamilch1k">github.com/kamilch1k</a>
+    </div>
+
+    <h2>Summary</h2>
+    <p class="summary">
+      Backend-focused engineer (.NET, Go, TypeScript) with a strong CS and mathematics
+      foundation (METU). I build practical, runnable systems and care about the parts that
+      are easy to get wrong — idempotency, concurrency, outbox-style workflows, and failure
+      recovery — backed by real tests, CI, and local verification. My graduation thesis is a
+      physics-informed neural radiance field (PyTorch). Currently focused on the slice fintech
+      teams hire for: money-safe ledgers, idempotent APIs, event streaming, and risk analytics.
+    </p>
+
+    <h2>Skills</h2>
+    <div class="skill-row"><b>Backend:</b> Go, C# / .NET, ASP.NET Core, Python, PHP, gRPC, REST</div>
+    <div class="skill-row"><b>Data &amp; Infra:</b> PostgreSQL, SQL, Kafka, Docker, CI/CD</div>
+    <div class="skill-row"><b>Frontend:</b> TypeScript, Three.js, Angular, HTML/CSS</div>
+    <div class="skill-row"><b>Testing:</b> Ginkgo/gomega, testcontainers, Allure</div>
+    <div class="skill-row"><b>Tools:</b> Git, Linux, EF Core, PyTorch, Profiling</div>
+    <div class="skill-row"><b>Game Dev:</b> Unity, UniTask, Zenject</div>
+    <div class="skill-row"><b>Languages:</b> English — professional</div>
+
+    <h2>Experience</h2>
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">Owner / Backend Developer — <span class="entry-co">ocenchik.ru</span></span>
+        <span class="entry-date">Aug 2020 – Present</span>
+      </div>
+      <p>Built and have run ocenchik.ru, a Russian-language valuation &amp; appraisal (ocenka)
+         resource that became one of the more popular sites on the subject across the CIS.
+         6 years live on a self-managed PHP backend — server-side logic, request handling, and a
+         database-backed data layer, with continuous features and fixes. Sole owner of its uptime,
+         content, and reliability.</p>
+    </div>
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">Backend Developer — <span class="entry-co">learnenglishbest.com</span></span>
+        <span class="entry-date">Aug 2023 – Sep 2023</span>
+      </div>
+      <p>Built backend functionality and the structured datasets powering English-learning
+         applications, including the data model behind the learning content.</p>
+    </div>
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">Python Instructor — <span class="entry-co">OOO Razvitie</span></span>
+        <span class="entry-date">Aug 2024</span>
+      </div>
+      <p>Taught Python, Flask, and FastAPI and guided students through building small backend
+         projects — teaching the fundamentals first: why the code works, not just how to produce it.</p>
+    </div>
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">Python / C# / Unity Instructor — <span class="entry-co">EasyCode</span></span>
+        <span class="entry-date">Sep 2025 – Jan 2026</span>
+      </div>
+      <p>Ran individual and group classes in Python, C#, and Unity for up to nine students,
+         adapting material to each learner's level.</p>
+    </div>
+
+    <h2>Selected Projects</h2>
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">ledgerline — event-driven double-entry ledger (Go)</span>
+        <span class="entry-date">2026</span>
+      </div>
+      <p>Concurrency-safe double-entry ledger: exactly-once transfers, no overdraft under load
+         (row-level locking), a gRPC surface, a transactional outbox + AML consumer, a
+         loan-origination FSM, and a dbt/DuckDB risk layer. Real-Postgres tests, race-checked CI, ~88% cov.</p>
+      <div class="stack">Go · PostgreSQL (pgx) · gRPC · Kafka · dbt · GitHub Actions</div>
+      <a class="link" href="https://github.com/kamilch1k/ledgerline">github.com/kamilch1k/ledgerline</a>
+    </div>
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">matchbox — limit-order-book matching engine (C++20)</span>
+        <span class="entry-date">2026</span>
+      </div>
+      <p>Header-only, zero-dependency engine: price-time priority, LIMIT/MARKET/IOC/FOK orders,
+         O(1) cancel, L2 depth. ~8.6M orders/s single-threaded; property/fuzz tests
+         (invariants + quantity conservation), deterministic replay, ASan/UBSan CI.</p>
+      <div class="stack">C++20 · CMake · zero deps · gcc/clang/MSVC · GitHub Actions</div>
+      <a class="link" href="https://github.com/kamilch1k/matchbox">github.com/kamilch1k/matchbox</a>
+    </div>
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">hire-bridge — onboarding integration service (TypeScript)</span>
+        <span class="entry-date">2026</span>
+      </div>
+      <p>Idempotent Greenhouse→HRIS/Airtable provisioning: HMAC webhooks, an ordered saga with
+         retry/backoff + dead-lettering, drift reconciliation, and an audit trail. 22 tests, ~98% cov.</p>
+      <div class="stack">TypeScript · Node · Fastify · SQLite · Zod · Vitest</div>
+      <a class="link" href="https://github.com/kamilch1k/hire-bridge">github.com/kamilch1k/hire-bridge</a>
+    </div>
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">droolcat-agent — visual cockpit for Claude Code (Tauri/Rust)</span>
+        <span class="entry-date">2026</span>
+      </div>
+      <p>Tauri v2 desktop app that drives the Claude Code CLI headless and renders its agents,
+         tool calls, and code as live, navigable graphs — a Rust bridge streaming stream-json into a
+         vanilla-JS canvas reducer (pan/zoom board, lanes, replay).</p>
+      <div class="stack">Rust · Tauri v2 · TypeScript/JS · Canvas · stream-json</div>
+      <a class="link" href="https://github.com/kamilch1k/droolcat-agent">github.com/kamilch1k/droolcat-agent</a>
+    </div>
+
+    <h2>Education</h2>
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">Middle East Technical University (METU) — B.Sc. Computer Engineering</span>
+        <span class="entry-date">2022 – 2026</span>
+      </div>
+      <p class="edu-thesis"><b>B.Sc. thesis:</b> Physics-Informed Neural Radiance Fields (PyTorch) —
+         adding surface-normal-consistency &amp; Lambertian priors to recover physically-plausible geometry.</p>
+    </div>
+  </div>
+</body>
+</html>
