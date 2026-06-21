@@ -343,6 +343,7 @@
         <div class="edu-school">Middle East Technical University (METU)</div>
         <div class="job-date" style="margin-top:3px;">2022 – 2026</div>
         <p class="about" style="margin-top:5px;"><b>B.Sc. thesis:</b> Physics-Informed Neural Radiance Fields (PyTorch) — adding surface-normal-consistency &amp; Lambertian priors to recover physically-plausible geometry.</p>
+        <p class="about" style="margin-top:4px;"><b>Competitive programming:</b> national-level (Russia); strong algorithms &amp; data structures.</p>
       </div>
     </aside>
 
@@ -351,15 +352,68 @@
       <div class="name">Kamil Gilfanov</div>
       <div class="role">Backend / Full-Stack Software Engineer</div>
       <p class="summary">
-        Backend-focused engineer (.NET, Go, TypeScript) with a strong CS and
-        mathematics foundation (METU). I build practical, runnable systems and
-        care about the parts that are easy to get wrong — idempotency, concurrency,
-        outbox-style workflows, and failure recovery — backed by real tests, CI,
-        and local verification. My graduation thesis is a physics-informed neural
-        radiance field (PyTorch). Currently focused on the slice fintech teams
-        hire for: money-safe ledgers, idempotent APIs, event streaming, and risk
-        analytics.
+        Backend engineer (Go, C# / .NET, TypeScript) who builds money-safe systems and
+        obsesses over what breaks in production — idempotency, concurrency, exactly-once
+        semantics, and failure recovery — all backed by real-Postgres tests, race-checked
+        CI, and ~88% coverage. I've shipped a concurrency-safe double-entry ledger (gRPC,
+        transactional outbox, no overdraft under load) and an ~8.6M-orders/s C++ matching
+        engine. METU Computer Engineering with a national-level competitive-programming
+        background. Looking for the correctness-critical backend work fintech teams hire for.
       </p>
+
+      <section>
+        <div class="sec-title">Selected Projects</div>
+
+        <div class="job">
+          <div class="job-head">
+            <div class="job-title">ledgerline — event-driven double-entry ledger (Go)</div>
+            <div class="job-date">2026</div>
+          </div>
+          <p>Guarantees <b>exactly-once transfers and zero overdraft under concurrent load</b>
+             (row-level locking, sorted lock order) — proven by real-Postgres integration tests
+             and a race-detector CI gate (~88% cov). gRPC surface, transactional outbox feeding an
+             AML consumer, loan-origination FSM, and a dbt/DuckDB risk layer.</p>
+          <div class="stack-line">Go · PostgreSQL (pgx) · gRPC · Kafka · dbt · GitHub Actions</div>
+          <a class="link" href="https://github.com/kamilch1k/ledgerline">github.com/kamilch1k/ledgerline</a>
+        </div>
+
+        <div class="job">
+          <div class="job-head">
+            <div class="job-title">matchbox — limit-order-book matching engine (C++20)</div>
+            <div class="job-date">2026</div>
+          </div>
+          <p>Header-only, zero-dependency engine with strict price-time priority (LIMIT/MARKET/IOC/FOK,
+             O(1) cancel, L2 depth): <b>~8.6M orders/s single-threaded</b>, hardened with property + fuzz
+             tests (invariants + quantity conservation) and deterministic replay under ASan/UBSan CI.</p>
+          <div class="stack-line">C++20 · CMake · zero deps · gcc/clang/MSVC · GitHub Actions</div>
+          <a class="link" href="https://github.com/kamilch1k/matchbox">github.com/kamilch1k/matchbox</a>
+        </div>
+
+        <div class="job">
+          <div class="job-head">
+            <div class="job-title">hire-bridge — onboarding integration service (TS)</div>
+            <div class="job-date">2026</div>
+          </div>
+          <p>Idempotent Greenhouse&rarr;HRIS/Airtable provisioning so duplicate or out-of-order events
+             <b>never double-provision</b>: HMAC webhooks, an ordered saga with retry/backoff +
+             dead-lettering, drift reconciliation, and an audit trail. 22 tests, ~98% cov.</p>
+          <div class="stack-line">TypeScript · Node · Fastify · SQLite · Zod · Vitest</div>
+          <a class="link" href="https://github.com/kamilch1k/hire-bridge">github.com/kamilch1k/hire-bridge</a>
+        </div>
+
+        <div class="job">
+          <div class="job-head">
+            <div class="job-title">droolcat-agent — visual cockpit for Claude Code (Tauri/Rust)</div>
+            <div class="job-date">2026</div>
+          </div>
+          <p>Tauri v2 desktop app that drives the Claude Code CLI headless and renders its agents, tool calls,
+             and code as live, navigable graphs — a Rust bridge streaming <code>stream-json</code> into a
+             vanilla-JS canvas reducer (pan/zoom board, lanes, replay).</p>
+          <div class="stack-line">Rust · Tauri v2 · TypeScript/JS · Canvas · stream-json</div>
+          <a class="link" href="https://github.com/kamilch1k/droolcat-agent">github.com/kamilch1k/droolcat-agent</a>
+        </div>
+
+      </section>
 
       <section>
         <div class="sec-title">Experience</div>
@@ -380,76 +434,18 @@
             <div class="job-title">Backend Developer · <span class="job-co">learnenglishbest.com</span></div>
             <div class="job-date">Aug 2023 – Sep 2023</div>
           </div>
-          <p>Built backend functionality and the structured datasets powering
-             English-learning applications, including the data model behind the
-             learning content.</p>
+          <p>Built backend functionality and the structured datasets powering English-learning
+             applications, including the data model behind the learning content.</p>
         </div>
 
         <div class="job">
           <div class="job-head">
-            <div class="job-title">Python Instructor · <span class="job-co">OOO Razvitie</span></div>
-            <div class="job-date">Aug 2024</div>
+            <div class="job-title">Programming Instructor · <span class="job-co">OOO Razvitie · EasyCode</span></div>
+            <div class="job-date">2024 – 2026</div>
           </div>
-          <p>Taught Python, Flask, and FastAPI and guided students through building
-             small backend projects — teaching the fundamentals first: why the code
-             works, not just how to produce it.</p>
+          <p>Taught Python, Flask/FastAPI, C#, and Unity in individual and group classes; guided
+             students through building real backend projects — fundamentals first.</p>
         </div>
-
-        <div class="job">
-          <div class="job-head">
-            <div class="job-title">Python / C# / Unity Instructor · <span class="job-co">EasyCode</span></div>
-            <div class="job-date">Sep 2025 – Jan 2026</div>
-          </div>
-          <p>Ran individual and group classes in Python, C#, and Unity for up to
-             nine students, adapting material to each learner's level.</p>
-        </div>
-      </section>
-
-      <section>
-        <div class="sec-title">Selected Projects</div>
-
-        <div class="job">
-          <div class="job-head">
-            <div class="job-title">ledgerline — event-driven double-entry ledger (Go)</div>
-            <div class="job-date">2026</div>
-          </div>
-          <p>Concurrency-safe double-entry ledger: exactly-once transfers, no overdraft under load (row-level locking), a gRPC surface, a transactional outbox + AML consumer, a loan-origination FSM, and a dbt/DuckDB risk layer. Real-Postgres tests, race-checked CI, ~88% cov.</p>
-          <div class="stack-line">Go · PostgreSQL (pgx) · gRPC · Kafka · dbt · GitHub Actions</div>
-          <a class="link" href="https://github.com/kamilch1k/ledgerline">github.com/kamilch1k/ledgerline</a>
-        </div>
-
-        <div class="job">
-          <div class="job-head">
-            <div class="job-title">matchbox — limit-order-book matching engine (C++20)</div>
-            <div class="job-date">2026</div>
-          </div>
-          <p>Header-only, zero-dependency engine: price-time priority, LIMIT/MARKET/IOC/FOK orders, O(1) cancel, L2 depth. ~8.6M orders/s single-threaded; property/fuzz tests (invariants + quantity conservation), deterministic replay, ASan/UBSan CI.</p>
-          <div class="stack-line">C++20 · CMake · zero deps · gcc/clang/MSVC · GitHub Actions</div>
-          <a class="link" href="https://github.com/kamilch1k/matchbox">github.com/kamilch1k/matchbox</a>
-        </div>
-
-        <div class="job">
-          <div class="job-head">
-            <div class="job-title">hire-bridge — onboarding integration service (TS)</div>
-            <div class="job-date">2026</div>
-          </div>
-          <p>Idempotent Greenhouse&rarr;HRIS/Airtable provisioning: HMAC webhooks, an ordered saga with retry/backoff + dead-lettering, drift reconciliation, and an audit trail. 22 tests, ~98% cov.</p>
-          <div class="stack-line">TypeScript · Node · Fastify · SQLite · Zod · Vitest</div>
-          <a class="link" href="https://github.com/kamilch1k/hire-bridge">github.com/kamilch1k/hire-bridge</a>
-        </div>
-
-        <div class="job">
-          <div class="job-head">
-            <div class="job-title">droolcat-agent — visual cockpit for Claude Code (Tauri/Rust)</div>
-            <div class="job-date">2026</div>
-          </div>
-          <p>Tauri v2 desktop app that drives the Claude Code CLI headless and renders its agents, tool calls,
-             and code as live, navigable graphs — a Rust bridge streaming <code>stream-json</code> into a
-             vanilla-JS canvas reducer (pan/zoom board, lanes, replay).</p>
-          <div class="stack-line">Rust · Tauri v2 · TypeScript/JS · Canvas · stream-json</div>
-          <a class="link" href="https://github.com/kamilch1k/droolcat-agent">github.com/kamilch1k/droolcat-agent</a>
-        </div>
-
       </section>
 
       <section class="side-sec">
